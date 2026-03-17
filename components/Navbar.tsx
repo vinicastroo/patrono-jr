@@ -33,7 +33,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#">
-          <Image src="/logo.png" alt="Patrono Jr." width={120} height={40} priority />
+          <Image src="/logo.png" alt="Patrono Jr." width={150} height={80} priority />
         </a>
 
         {/* Desktop nav */}
@@ -45,7 +45,7 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a href="#contato"
+          <a href="https://wa.me/557382344154" target="_blank" rel="noopener noreferrer"
             className="text-[13px] font-semibold px-5 py-2 rounded-sm transition-all duration-200"
             style={{ background: 'var(--gold)', color: 'var(--wine-darker, #2a0000)', fontFamily: 'var(--font-body)' }}
             onMouseEnter={e => { e.currentTarget.style.background = 'var(--gold-light)' }}
@@ -71,7 +71,7 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a href="#contato" onClick={() => setOpen(false)}
+          <a href="https://wa.me/557382344154" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
             className="text-sm font-semibold px-5 py-3 text-center rounded-sm mt-1"
             style={{ background: 'var(--gold)', color: '#2a0000', fontFamily: 'var(--font-body)' }}>
             Falar com a equipe

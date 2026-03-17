@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Plus, Minus } from 'lucide-react'
+import Reveal from '@/components/Reveal'
 
 const faqs = [
   {
@@ -36,12 +37,10 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-28" style={{ background: 'var(--cream)' }}>
       <div className="max-w-6xl mx-auto px-6">
-
-        {/* Header — alinhado à esquerda, mesmo padrão das outras seções */}
         <div className="grid md:grid-cols-3 gap-16 items-start">
 
-          {/* Coluna esquerda — título fixo */}
-          <div className="reveal">
+          {/* Coluna esquerda */}
+          <Reveal variant="slide-left">
             <div className="flex items-center gap-4 mb-6">
               <span className="section-label">FAQ</span>
               <div className="w-8 h-px" style={{ background: 'var(--gold)' }} />
@@ -54,24 +53,23 @@ export default function FAQ() {
               style={{ fontFamily: 'var(--font-body)', color: 'var(--text-muted)' }}>
               Não encontrou o que procura? Entre em contato — o diagnóstico inicial é gratuito.
             </p>
-            <a href="#contato"
+            <a href="https://wa.me/557382344154" target="_blank" rel="noopener noreferrer"
               className="inline-block mt-6 text-sm font-semibold transition-colors duration-200"
               style={{ color: 'var(--gold)', fontFamily: 'var(--font-body)', borderBottom: '1px solid var(--gold)' }}
               onMouseEnter={e => { e.currentTarget.style.color = 'var(--wine)'; e.currentTarget.style.borderColor = 'var(--wine)' }}
               onMouseLeave={e => { e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.borderColor = 'var(--gold)' }}>
               Falar com a equipe →
             </a>
-          </div>
+          </Reveal>
 
-          {/* Coluna direita — acordeão */}
-          <div className="md:col-span-2 flex flex-col reveal reveal-delay-1"
+          {/* Acordeão */}
+          <Reveal variant="slide-right" delay={0.1} className="md:col-span-2 flex flex-col"
             style={{ borderTop: '1px solid rgba(122,1,1,0.1)' }}>
             {faqs.map((faq, i) => (
-              <div key={i}
-                style={{ borderBottom: '1px solid rgba(122,1,1,0.1)' }}>
+              <div key={i} style={{ borderBottom: '1px solid rgba(122,1,1,0.1)' }}>
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="w-full flex items-start justify-between py-6 text-left gap-6 group"
+                  className="w-full flex items-start justify-between py-6 text-left gap-6"
                   style={{ fontFamily: 'var(--font-body)' }}>
                   <span className="text-sm font-semibold leading-snug transition-colors duration-200"
                     style={{ color: open === i ? 'var(--wine)' : 'var(--text-dark)' }}>
@@ -82,7 +80,6 @@ export default function FAQ() {
                     {open === i ? <Minus size={15} /> : <Plus size={15} />}
                   </span>
                 </button>
-
                 <div className={`overflow-hidden transition-all duration-300 ${open === i ? 'max-h-48 pb-6' : 'max-h-0'}`}>
                   <p className="text-sm leading-relaxed"
                     style={{ fontFamily: 'var(--font-body)', color: 'var(--text-muted)' }}>
@@ -91,7 +88,7 @@ export default function FAQ() {
                 </div>
               </div>
             ))}
-          </div>
+          </Reveal>
 
         </div>
       </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { Mail, Instagram, Linkedin, ArrowRight } from 'lucide-react'
+import Reveal from '@/components/Reveal'
 
 function WhatsAppIcon({ size = 18 }: { size?: number }) {
   return (
@@ -41,11 +42,10 @@ export default function Contato() {
   return (
     <section id="contato" className="py-28"
       style={{ background: 'var(--wine-deeper, #2a0000)' }}>
-
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Header */}
-        <div className="grid md:grid-cols-2 gap-16 items-end mb-16 reveal">
+        <Reveal variant="blur" className="grid md:grid-cols-2 gap-16 items-end mb-16">
           <div>
             <div className="flex items-center gap-4 mb-6">
               <span className="section-label">Contato</span>
@@ -64,10 +64,10 @@ export default function Contato() {
             Não espere um problema para buscar orientação jurídica. O diagnóstico inicial
             é gratuito e sem compromisso. Escolha o canal que preferir.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Canais de contato */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px reveal reveal-delay-1"
+        {/* Canais */}
+        <Reveal variant="slide-up" delay={0.1} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px"
           style={{ background: 'rgba(201,168,76,0.1)' }}>
           {canais.map(({ icon: Icon, label, desc, href }) => (
             <a key={label} href={href} target="_blank" rel="noopener noreferrer"
@@ -93,7 +93,7 @@ export default function Contato() {
                 style={{ color: 'var(--gold)' }} />
             </a>
           ))}
-        </div>
+        </Reveal>
 
       </div>
     </section>

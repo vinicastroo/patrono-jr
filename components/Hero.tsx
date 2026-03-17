@@ -1,12 +1,12 @@
 'use client'
 
 import { ArrowRight } from 'lucide-react'
-import Image from 'next/image'
 
 export default function Hero() {
   return (
     <section className="relative min-h-[80vh] flex items-center"
       style={{ background: 'var(--wine-deeper)' }}>
+
 
       {/* Orbs animados */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -76,7 +76,7 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <a href="#contato"
+              <a href="https://wa.me/557382344154" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold transition-colors duration-200"
                 style={{ background: 'var(--gold)', color: 'var(--wine-deeper)', fontFamily: 'var(--font-body)' }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'var(--gold-light)' }}
@@ -93,14 +93,13 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Coluna direita — placeholder */}
-          <div className="hidden md:flex flex-col items-center justify-center self-stretch"
-            style={{ background: 'rgba(201,168,76,0.04)', border: '1px solid rgba(201,168,76,0.15)' }}>
-            <div className="w-12 h-px mb-4" style={{ background: 'var(--gold)' }} />
-            <span className="text-[10px] tracking-widest uppercase"
-              style={{ color: 'rgba(201,168,76,0.35)', fontFamily: 'var(--font-body)' }}>
-              Foto da equipe
-            </span>
+          {/* Coluna direita — imagem */}
+          <div className="hidden md:flex items-end justify-center  h-full min-h-[420px]">
+            <img
+              src="/mulher-hero.png"
+              alt="Ilustração"
+              className="absolute z-10 h-full max-h-[680px] object-contain object-bottom  bottom-0"
+            />
           </div>
 
         </div>

@@ -37,7 +37,7 @@ export default function Footer() {
 
           {/* Coluna 1 — Logo + descrição */}
           <div>
-            <Image src="/logo.png" alt="Patrono Jr." width={110} height={36} className="mb-5" />
+            <Image src="/logo-full.png" alt="Patrono Jr." width={250} height={80} className="mb-5" />
             <p className="text-sm leading-relaxed mb-6"
               style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.35)' }}>
               A primeira Empresa Júnior de Direito da UESC. Assessoria jurídica acessível,
@@ -86,6 +86,13 @@ export default function Footer() {
           <div>
             <span className="section-label block mb-5">Contato</span>
             <div className="flex flex-col gap-3">
+              <a href="https://wa.me/557382344154" target="_blank" rel="noopener noreferrer"
+                className="text-sm transition-colors duration-200"
+                style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.4)' }}
+                onMouseEnter={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.85)' }}
+                onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)' }}>
+                (73) 8234-4154
+              </a>
               <a href="mailto:patronojr@gmail.com"
                 className="text-sm transition-colors duration-200"
                 style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.4)' }}
@@ -93,16 +100,11 @@ export default function Footer() {
                 onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)' }}>
                 patronojr@gmail.com
               </a>
-              <a href="https://www.instagram.com/patronojr/" target="_blank" rel="noopener noreferrer"
-                className="text-sm transition-colors duration-200"
-                style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.4)' }}
-                onMouseEnter={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.85)' }}
-                onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)' }}>
-                @patronojr
-              </a>
-              <span className="text-sm"
+              <span className="text-sm leading-relaxed"
                 style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.2)' }}>
-                Ilhéus, Bahia — Brasil
+                Pavilhão Waldir Pires, Campus Soane Nazaré de Andrade<br />
+                Rod. Jorge Amado, Km 16 — Salobrinho<br />
+                Ilhéus - BA, 45662-900
               </span>
             </div>
           </div>
@@ -119,7 +121,7 @@ export default function Footer() {
           </p>
           <p className="text-[11px]"
             style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.2)' }}>
-            Serviços supervisionados por professores especialistas · MEJ
+            CNPJ 47.485.631/0001-01 · Serviços supervisionados por professores especialistas
           </p>
           <div className="flex items-center gap-2">
             <span className="text-[11px]"

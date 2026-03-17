@@ -1,6 +1,7 @@
 'use client'
 
 import { Scale, FileText, Building2, ShieldCheck, Briefcase, Lock } from 'lucide-react'
+import Reveal from '@/components/Reveal'
 
 const servicos = [
   {
@@ -47,14 +48,14 @@ export default function Servicos() {
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Header */}
-        <div className="text-center mb-16 reveal">
+        <Reveal variant="rotate" className="text-center mb-16">
           <span className="section-label block mb-4">O que fazemos</span>
           <span className="gold-bar mx-auto mb-6" />
           <h2 className="text-4xl md:text-5xl text-white leading-tight"
             style={{ fontFamily: 'var(--font-display)' }}>
             Serviços que protegem e<br />estruturam o seu negócio.
           </h2>
-        </div>
+        </Reveal>
 
         {/* Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px"
@@ -62,42 +63,39 @@ export default function Servicos() {
           {servicos.map((s, i) => {
             const Icon = s.icon
             return (
-              <div key={i}
-                className="reveal p-8 group transition-all duration-300 cursor-default"
-                style={{
-                  background: 'var(--wine-deeper, #2a0000)',
-                  transitionDelay: `${i * 0.06}s`,
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'var(--wine-dark)' }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'var(--wine-deeper, #2a0000)' }}>
+              <Reveal key={i} variant="scale" delay={i * 0.07}>
+                <div
+                  className="p-8 group transition-colors duration-300 cursor-default h-full"
+                  style={{ background: 'var(--wine-deeper, #2a0000)' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'var(--wine-dark)' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'var(--wine-deeper, #2a0000)' }}>
 
-                {/* Tag */}
-                <span className="text-[10px] font-semibold tracking-widest uppercase mb-4 block"
-                  style={{ color: 'var(--gold)', fontFamily: 'var(--font-body)' }}>
-                  {s.tag}
-                </span>
+                  <span className="text-[10px] font-semibold tracking-widest uppercase mb-4 block"
+                    style={{ color: 'var(--gold)', fontFamily: 'var(--font-body)' }}>
+                    {s.tag}
+                  </span>
 
-                {/* Icon */}
-                <div className="w-10 h-10 flex items-center justify-center rounded-sm mb-5"
-                  style={{ background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.2)' }}>
-                  <Icon size={18} style={{ color: 'var(--gold)' }} />
+                  <div className="w-10 h-10 flex items-center justify-center rounded-sm mb-5"
+                    style={{ background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.2)' }}>
+                    <Icon size={18} style={{ color: 'var(--gold)' }} />
+                  </div>
+
+                  <h3 className="text-lg font-semibold text-white mb-3 leading-snug"
+                    style={{ fontFamily: 'var(--font-body)' }}>
+                    {s.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-white/55"
+                    style={{ fontFamily: 'var(--font-body)' }}>
+                    {s.desc}
+                  </p>
                 </div>
-
-                <h3 className="text-lg font-semibold text-white mb-3 leading-snug"
-                  style={{ fontFamily: 'var(--font-body)' }}>
-                  {s.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-white/55"
-                  style={{ fontFamily: 'var(--font-body)' }}>
-                  {s.desc}
-                </p>
-              </div>
+              </Reveal>
             )
           })}
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12 reveal">
+        <Reveal variant="slide-up" className="text-center mt-12">
           <a href="#contato"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-sm text-sm font-semibold transition-all duration-200"
             style={{ background: 'var(--gold)', color: '#2a0000', fontFamily: 'var(--font-body)' }}
@@ -105,7 +103,8 @@ export default function Servicos() {
             onMouseLeave={e => { e.currentTarget.style.background = 'var(--gold)' }}>
             Agendar diagnóstico gratuito
           </a>
-        </div>
+        </Reveal>
+
       </div>
     </section>
   )
