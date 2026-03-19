@@ -114,7 +114,7 @@ export default function Footer() {
 
       {/* Rodapé inferior */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-2">
+        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col lg:flex-row items-center justify-between gap-2 text-center lg:text-left">
           <p className="text-[11px]"
             style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.2)' }}>
             © {year} Patrono Jr. · Todos os direitos reservados

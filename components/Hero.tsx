@@ -99,9 +99,10 @@ export default function Hero() {
             <Image
               src="/mulher-hero.png"
               alt="Ilustração"
-              width={460}
-              height={460}
+              width={920}
+              height={920}
               priority
+              quality={90}
               className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[360px] sm:h-[460px] w-auto object-contain object-bottom"
             />
           </div>
@@ -111,9 +112,10 @@ export default function Hero() {
             <Image
               src="/mulher-hero.png"
               alt="Ilustração"
-              width={680}
-              height={680}
+              width={1360}
+              height={1360}
               priority
+              quality={90}
               className="absolute z-10 h-full max-h-[680px] w-auto object-contain object-bottom bottom-0"
             />
           </div>
