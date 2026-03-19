@@ -83,8 +83,9 @@ export default function CTAFinal() {
                 <Image
                   src="/homem-cta.png"
                   alt=""
-                  width={520}
-                  height={520}
+                  width={964}
+                  height={1282}
+                  quality={90}
                   className="absolute bottom-0 h-[580px] w-auto max-h-[580px] object-contain object-bottom"
                 />
               </div>
