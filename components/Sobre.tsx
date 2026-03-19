@@ -79,11 +79,11 @@ export default function Sobre() {
               className="absolute inset-0 w-full h-full object-cover object-top"
             />
             <div className="absolute inset-0"
-              style={{ background: 'linear-gradient(to top, rgba(40,0,0,0.85) 0%, rgba(40,0,0,0.2) 60%, transparent 100%)' }} />
+              style={{ background: 'linear-gradient(to top, rgba(20,0,0,0.97) 0%, rgba(20,0,0,0.7) 50%, rgba(20,0,0,0.2) 100%)' }} />
             <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8">
-              <span className="section-label block mb-3" style={{ color: 'rgba(201,168,76,0.7)' }}>Nossa casa</span>
+              <span className="section-label block mb-3" style={{ color: 'var(--gold)' }}>Nossa casa</span>
               <p className="text-sm md:text-base leading-relaxed max-w-2xl"
-                style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.75)' }}>
+                style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.92)' }}>
                 A <strong style={{ color: '#fff' }}>Faculdade de Direito de Ilhéus</strong> é uma das escolas
                 originárias da UESC — estadualizada em 1991 e hoje uma das quatro IES mantidas pelo Governo
                 da Bahia, fortemente vinculada ao desenvolvimento do sul da Bahia.
