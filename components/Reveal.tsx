@@ -17,12 +17,12 @@ const variants: Record<RevealVariant, Variants> = {
     visible: { y: 0, opacity: 1 },
   },
   'slide-left': {
-    hidden: { x: -56, opacity: 0 },
-    visible: { x: 0, opacity: 1 },
+    hidden: { y: 32, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
   },
   'slide-right': {
-    hidden: { x: 56, opacity: 0 },
-    visible: { x: 0, opacity: 1 },
+    hidden: { y: 32, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
   },
   'scale': {
     hidden: { scale: 0.88, opacity: 0, y: 24 },

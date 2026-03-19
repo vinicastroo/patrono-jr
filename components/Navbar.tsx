@@ -17,27 +17,27 @@ export default function Navbar() {
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 48)
-    window.addEventListener('scroll', handler)
+    window.addEventListener('scroll', handler, { passive: true })
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      className="fixed top-0 left-0 right-0 z-50 overflow-hidden transition-all duration-500"
       style={{
         background: scrolled ? 'rgba(42,0,0,0.96)' : 'transparent',
         backdropFilter: scrolled ? 'blur(14px)' : 'none',
         borderBottom: scrolled ? '1px solid rgba(201,168,76,0.18)' : 'none',
       }}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="w-full h-16 px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#">
-          <Image src="/logo.png" alt="Patrono Jr." width={150} height={80} priority />
+        <a href="#" className="flex-shrink-0">
+          <Image src="/logo.png" alt="Patrono Jr." width={120} height={64} className="w-[110px] lg:w-[140px]" priority />
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-7">
           {links.map((l) => (
             <a key={l.href} href={l.href}
               className="text-[13px] text-white/75 hover:text-white transition-colors"
@@ -55,14 +55,14 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile toggle */}
-        <button className="md:hidden text-white p-1" onClick={() => setOpen(!open)} aria-label="Menu">
+        <button className="lg:hidden flex-shrink-0 text-white p-2" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden px-6 pb-6 pt-3 flex flex-col gap-3"
+        <div className="lg:hidden px-6 pb-6 pt-3 flex flex-col gap-3"
           style={{ background: 'rgba(42,0,0,0.98)', borderTop: '1px solid rgba(201,168,76,0.15)' }}>
           {links.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)}

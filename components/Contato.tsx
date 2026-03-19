@@ -45,13 +45,13 @@ export default function Contato() {
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Header */}
-        <Reveal variant="blur" className="grid md:grid-cols-2 gap-16 items-end mb-16">
+        <Reveal variant="blur" className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-16">
           <div>
             <div className="flex items-center gap-4 mb-6">
               <span className="section-label">Contato</span>
               <div className="w-8 h-px" style={{ background: 'var(--gold)' }} />
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight text-white"
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-white"
               style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
               Seu negócio merece uma{' '}
               <em className="not-italic" style={{ color: 'var(--gold)' }}>

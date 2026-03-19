@@ -33,7 +33,7 @@ export default function Footer() {
 
       {/* Corpo principal */}
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
 
           {/* Coluna 1 — Logo + descrição */}
           <div>
@@ -114,7 +114,7 @@ export default function Footer() {
 
       {/* Rodapé inferior */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-2">
+        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-2">
           <p className="text-[11px]"
             style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.2)' }}>
             © {year} Patrono Jr. · Todos os direitos reservados

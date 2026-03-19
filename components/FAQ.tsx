@@ -37,7 +37,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-28" style={{ background: 'var(--cream)' }}>
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-16 items-start">
+        <div className="grid lg:grid-cols-3 gap-10 lg:gap-16 items-start">
 
           {/* Coluna esquerda */}
           <Reveal variant="slide-left">
@@ -45,7 +45,7 @@ export default function FAQ() {
               <span className="section-label">FAQ</span>
               <div className="w-8 h-px" style={{ background: 'var(--gold)' }} />
             </div>
-            <h2 className="text-4xl md:text-5xl leading-tight mb-6"
+            <h2 className="text-3xl sm:text-4xl md:text-5xl leading-tight mb-6"
               style={{ fontFamily: 'var(--font-display)', color: 'var(--wine)', fontWeight: 400 }}>
               Dúvidas frequentes
             </h2>
@@ -63,7 +63,7 @@ export default function FAQ() {
           </Reveal>
 
           {/* Acordeão */}
-          <Reveal variant="slide-right" delay={0.1} className="md:col-span-2 flex flex-col"
+          <Reveal variant="slide-right" delay={0.1} className="lg:col-span-2 flex flex-col"
             style={{ borderTop: '1px solid rgba(122,1,1,0.1)' }}>
             {faqs.map((faq, i) => (
               <div key={i} style={{ borderBottom: '1px solid rgba(122,1,1,0.1)' }}>

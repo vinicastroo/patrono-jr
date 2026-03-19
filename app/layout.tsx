@@ -1,10 +1,60 @@
 import type { Metadata } from 'next'
+import { Cormorant_Garamond, Poppins } from 'next/font/google'
 import './globals.css'
 
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-body',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
-  title: 'Patrono Jr. | Assessoria e Consultoria Jurídica',
-  description: 'A primeira Empresa Júnior de Direito da UESC. Registro de marcas, abertura de empresas, contratos e assessoria jurídica acessível.',
-  keywords: ['empresa júnior direito', 'registro de marca INPI', 'assessoria jurídica', 'UESC', 'MEJ', 'LGPD', 'propriedade intelectual'],
+  metadataBase: new URL('https://patronojr.com.br'),
+  title: {
+    default: 'Patrono Jr. | Assessoria Jurídica para Empreendedores',
+    template: '%s | Patrono Jr.',
+  },
+  description: 'A primeira Empresa Júnior de Direito da UESC. Registro de marcas no INPI, abertura de empresas, contratos e assessoria jurídica acessível com supervisão docente em Ilhéus-BA.',
+  keywords: [
+    'empresa júnior direito', 'registro de marca INPI', 'assessoria jurídica Ilhéus',
+    'abertura de empresa', 'LGPD', 'propriedade intelectual', 'consultoria jurídica',
+    'UESC', 'MEJ', 'Patrono Jr.', 'direito empresarial Bahia',
+  ],
+  authors: [{ name: 'Patrono Jr.', url: 'https://patronojr.com.br' }],
+  creator: 'Patrono Jr.',
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    url: 'https://patronojr.com.br',
+    siteName: 'Patrono Jr.',
+    title: 'Patrono Jr. | Assessoria Jurídica para Empreendedores',
+    description: 'Registro de marcas, abertura de empresas e consultoria jurídica acessível. Supervisão docente especializada. Diagnóstico gratuito.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Patrono Jr. — Assessoria Jurídica' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Patrono Jr. | Assessoria Jurídica para Empreendedores',
+    description: 'Registro de marcas, abertura de empresas e consultoria jurídica acessível. Diagnóstico gratuito.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+  },
+  alternates: {
+    canonical: 'https://patronojr.com.br',
+  },
 }
 
 const jsonLd = {
@@ -69,17 +119,14 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={`${cormorant.variable} ${poppins.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body><div style={{ overflowX: 'hidden' }}>{children}</div></body>
     </html>
   )
 }

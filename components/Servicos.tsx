@@ -51,7 +51,7 @@ export default function Servicos() {
         <Reveal variant="rotate" className="text-center mb-16">
           <span className="section-label block mb-4">O que fazemos</span>
           <span className="gold-bar mx-auto mb-6" />
-          <h2 className="text-4xl md:text-5xl text-white leading-tight"
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-white leading-tight"
             style={{ fontFamily: 'var(--font-display)' }}>
             Serviços que protegem e<br />estruturam o seu negócio.
           </h2>

@@ -15,17 +15,17 @@ export default function Sobre() {
               Desde 2021
             </span>
           </div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl leading-[1.05]"
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05]"
             style={{ fontFamily: 'var(--font-display)', color: 'var(--wine)', fontWeight: 400 }}>
             A primeira EJ de<br />Direito da UESC.
           </h2>
         </Reveal>
 
         {/* Grid principal */}
-        <div className="grid md:grid-cols-3 gap-12 items-start">
+        <div className="grid lg:grid-cols-3 gap-12 items-start">
 
           {/* Texto — 2 colunas */}
-          <Reveal variant="slide-left" delay={0.1} className="md:col-span-2">
+          <Reveal variant="slide-left" delay={0.1} className="lg:col-span-2">
             <p className="text-lg leading-relaxed mb-6"
               style={{ fontFamily: 'var(--font-body)', color: 'var(--text-muted)' }}>
               A <strong style={{ color: 'var(--wine)' }}>Patrono Assessoria e Consultoria Júnior</strong> nasceu
@@ -40,8 +40,8 @@ export default function Sobre() {
           </Reveal>
 
           {/* Missão e Visão */}
-          <Reveal variant="slide-right" delay={0.2} className="flex flex-col gap-px"
-            style={{ borderLeft: '1px solid rgba(122,1,1,0.12)' }}>
+          <Reveal variant="slide-right" delay={0.2} className="flex flex-col gap-px border-t lg:border-t-0 lg:border-l pt-8 lg:pt-0"
+            style={{ borderColor: 'rgba(122,1,1,0.12)' }}>
             {[
               {
                 n: '01',
@@ -71,7 +71,7 @@ export default function Sobre() {
 
         {/* Foto do campus */}
         <Reveal variant="scale" delay={0.1} className="mt-16">
-          <div className="w-full h-72 md:h-96 relative overflow-hidden"
+          <div className="w-full h-64 lg:h-96 relative overflow-hidden"
             style={{ background: 'var(--wine-deeper)' }}>
             <img
               src="/campus.jpg"
@@ -95,19 +95,21 @@ export default function Sobre() {
         {/* Stats */}
         <Reveal variant="blur" delay={0.1} className="mt-20 pt-10"
           style={{ borderTop: '1px solid rgba(122,1,1,0.12)' }}>
-          <div className="grid grid-cols-3 gap-0">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
             {[
               { n: '2021', label: 'Ano de fundação' },
               { n: 'MEJ',  label: 'Movimento Empresa Júnior' },
               { n: 'UESC', label: 'Primeira EJ de Direito' },
             ].map((s, i) => (
-              <div key={s.n} className={`py-6 ${i > 0 ? 'pl-10 border-l' : ''}`}
+              <div key={s.n}
+                className={`py-5 sm:py-6 flex sm:block items-center gap-5 sm:gap-0
+                  ${i > 0 ? 'border-t sm:border-t-0 sm:border-l sm:pl-10' : ''}`}
                 style={{ borderColor: 'rgba(122,1,1,0.12)' }}>
-                <div className="text-3xl md:text-4xl mb-1"
+                <div className="text-4xl sm:text-3xl md:text-4xl mb-0 sm:mb-1 w-20 sm:w-auto shrink-0"
                   style={{ fontFamily: 'var(--font-display)', color: 'var(--wine)', fontWeight: 400 }}>
                   {s.n}
                 </div>
-                <div className="text-xs tracking-wide"
+                <div className="text-sm sm:text-xs tracking-wide"
                   style={{ fontFamily: 'var(--font-body)', color: 'var(--text-muted)' }}>
                   {s.label}
                 </div>
