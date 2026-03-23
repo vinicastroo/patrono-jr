@@ -39,7 +39,7 @@ export default function Footer() {
           <div>
             <Image src="/logo-full.png" alt="Patrono Jr." width={250} height={80} className="mb-5" />
             <p className="text-sm leading-relaxed mb-6"
-              style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.35)' }}>
+              style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.6)' }}>
               A primeira Empresa Júnior de Direito da UESC. Assessoria jurídica acessível,
               com supervisão docente especializada.
             </p>
@@ -49,15 +49,15 @@ export default function Footer() {
                   aria-label={label}
                   className="w-9 h-9 flex items-center justify-center transition-all duration-200"
                   style={{
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    color: 'rgba(255,255,255,0.4)',
+                    border: '1px solid rgba(255,255,255,0.25)',
+                    color: 'rgba(255,255,255,0.65)',
                   }}
                   onMouseEnter={e => {
                     e.currentTarget.style.borderColor = 'var(--gold)'
                     e.currentTarget.style.color = 'var(--gold)'
                   }}
                   onMouseLeave={e => {
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'
                     e.currentTarget.style.color = 'rgba(255,255,255,0.4)'
                   }}>
                   <Icon size={14} />
@@ -73,7 +73,7 @@ export default function Footer() {
               {navLinks.map((l) => (
                 <a key={l.href} href={l.href}
                   className="text-sm transition-colors duration-200"
-                  style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.4)' }}
+                  style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.65)' }}
                   onMouseEnter={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.85)' }}
                   onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)' }}>
                   {l.label}
@@ -88,20 +88,20 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <a href="https://wa.me/557382344154" target="_blank" rel="noopener noreferrer"
                 className="text-sm transition-colors duration-200"
-                style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.4)' }}
+                style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.65)' }}
                 onMouseEnter={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.85)' }}
                 onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)' }}>
-                (73) 8234-4154
+                (73) 98234-4154
               </a>
               <a href="mailto:patronojr@gmail.com"
                 className="text-sm transition-colors duration-200"
-                style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.4)' }}
+                style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.65)' }}
                 onMouseEnter={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.85)' }}
                 onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)' }}>
                 patronojr@gmail.com
               </a>
               <span className="text-sm leading-relaxed"
-                style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.2)' }}>
+                style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.45)' }}>
                 Pavilhão Waldir Pires, Campus Soane Nazaré de Andrade<br />
                 Rod. Jorge Amado, Km 16 — Salobrinho<br />
                 Ilhéus - BA, 45662-900
@@ -116,21 +116,21 @@ export default function Footer() {
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col lg:flex-row items-center justify-between gap-2 text-center lg:text-left">
           <p className="text-[11px]"
-            style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.2)' }}>
+            style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.45)' }}>
             © {year} Patrono Jr. · Todos os direitos reservados
           </p>
           <p className="text-[11px]"
-            style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.2)' }}>
+            style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.45)' }}>
             CNPJ 47.485.631/0001-01 · Serviços supervisionados por professores especialistas
           </p>
           <div className="flex items-center gap-2">
             <span className="text-[11px]"
-              style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.2)' }}>
+              style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.45)' }}>
               Desenvolvido por
             </span>
             <a href="https://codelabz.com.br" target="_blank" rel="noopener noreferrer"
               className="transition-opacity duration-200"
-              style={{ opacity: 0.35 }}
+              style={{ opacity: 0.6 }}
               onMouseEnter={e => { e.currentTarget.style.opacity = '1' }}
               onMouseLeave={e => { e.currentTarget.style.opacity = '0.35' }}>
               <Image src="/codelabz.svg" alt="Codelabz" width={16} height={16}

@@ -6,7 +6,7 @@ import Image from 'next/image'
 export default function Hero() {
   return (
     <section className="relative min-h-[80vh] flex items-center overflow-hidden"
-      style={{ background: 'var(--wine-deeper)' }}>
+      style={{ background: 'var(--wine-dark)' }}>
 
 
       {/* Orbs animados */}
@@ -34,24 +34,12 @@ export default function Hero() {
           }} />
       </div>
 
-      {/* Textura de linhas diagonais */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(
-            45deg,
-            rgba(255,255,255,0.025) 0px,
-            rgba(255,255,255,0.025) 1px,
-            transparent 1px,
-            transparent 18px
-          )`,
-        }} />
-
 
       {/* Linha de acento dourada no topo */}
       <div className="absolute top-0 left-0 right-0 h-px"
         style={{ background: 'linear-gradient(to right, var(--gold), transparent 55%)' }} />
 
-      <div className="relative w-full max-w-6xl mx-auto px-6 pt-24 pb-[340px] lg:pb-24">
+      <div className="relative w-full max-w-6xl mx-auto px-6 pt-24 pb-[340px] lg:pb-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Coluna esquerda — texto */}
@@ -72,8 +60,7 @@ export default function Hero() {
 
             <p className="text-base md:text-lg leading-relaxed mb-12"
               style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.5)' }}>
-              Do registro de marcas à abertura de empresas — entregamos inteligência jurídica
-              acessível para o seu negócio crescer com segurança.
+              Do registro de marcas à abertura de empresas, entregamos inteligência jurídica acessível e de excelência para o seu negócio crescer com segurança.
             </p>
 
             <div className="flex gap-3 z-20">
@@ -116,7 +103,7 @@ export default function Hero() {
               height={1360}
               priority
               quality={90}
-              className="absolute z-10 h-full max-h-[680px] w-auto object-contain object-bottom bottom-0"
+              className="absolute z-10 h-full max-h-[680px] w-auto object-contain object-bottom bottom-0 mt-2"
             />
           </div>
 

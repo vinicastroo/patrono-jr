@@ -16,7 +16,7 @@ const steps = [
   },
   {
     n: '03',
-    title: 'Execução com rigor',
+    title: 'Execução com excelência',
     desc: 'Nossos membros conduzem todo o processo com supervisão docente especializada, garantindo segurança jurídica em cada etapa.',
   },
   {
@@ -29,11 +29,11 @@ const steps = [
 const THRESHOLDS = [0.05, 0.30, 0.52, 0.72, 0.85, 0.94]
 
 export default function ComoFunciona() {
-  const sectionRef  = useRef<HTMLDivElement>(null)
-  const lineRef     = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const lineRef = useRef<HTMLDivElement>(null)
 
   // Refs para estado ativo — atualizados sem re-render no scroll
-  const activeRef   = useRef(THRESHOLDS.map(() => false))
+  const activeRef = useRef(THRESHOLDS.map(() => false))
 
   // Re-render só ocorre quando um threshold é cruzado (máx. 6 vezes)
   const [, notify] = useReducer(x => x + 1, 0)
@@ -45,9 +45,9 @@ export default function ComoFunciona() {
       const el = sectionRef.current
       if (!el) return
 
-      const rect   = el.getBoundingClientRect()
-      const vh     = window.innerHeight
-      const start  = vh * 0.75
+      const rect = el.getBoundingClientRect()
+      const vh = window.innerHeight
+      const start = vh * 0.75
       const traveled = -rect.top + start
       const progress = Math.min(1, Math.max(0, traveled / (rect.height * 0.95)))
 
@@ -58,7 +58,7 @@ export default function ComoFunciona() {
 
       // Verifica cruzamentos de threshold — re-render só se algo mudou
       const newActive = THRESHOLDS.map(t => progress >= t)
-      const changed   = newActive.some((v, i) => v !== activeRef.current[i])
+      const changed = newActive.some((v, i) => v !== activeRef.current[i])
       if (changed) {
         activeRef.current = newActive
         notify()
@@ -191,13 +191,11 @@ export default function ComoFunciona() {
           <div>
             <h3 className="text-lg font-semibold mb-2"
               style={{ fontFamily: 'var(--font-body)', color: 'var(--wine)' }}>
-              Supervisão docente em todos os projetos
+              Supervisão docente especialista
             </h3>
             <p className="text-sm leading-relaxed"
               style={{ fontFamily: 'var(--font-body)', color: 'var(--text-muted)' }}>
-              Todo e qualquer trabalho da Patrono Jr. é orientado por professores especialistas do curso de Direito da UESC.
-              Isso significa que você tem acesso a um serviço de qualidade técnica e segurança jurídica real — não apenas
-              o comprometimento de estudantes, mas a experiência de quem ensina o Direito todos os dias.
+              Embora sejamos uma empresa comandada por empresários júniores, contamos com o apoio de três advogados especialistas e um juiz de direito enquanto professores orientadores, sempre disponíveis e atentos. Isso significa que você contrata um serviço de excelência e segurança jurídica por um valor mais acessível, contando com o apoio de profissionais experientes.
             </p>
           </div>
         </div>

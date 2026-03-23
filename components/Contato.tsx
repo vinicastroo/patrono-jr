@@ -15,7 +15,7 @@ const canais = [
   {
     icon: WhatsAppIcon,
     label: 'WhatsApp',
-    desc: '(73) 8234-4154',
+    desc: '(73) 98234-4154',
     href: 'https://wa.me/557382344154',
   },
   {

@@ -46,7 +46,7 @@ export default function CTAFinal() {
                   <span className="section-label">Diagnóstico gratuito</span>
                   <div className="w-8 h-px" style={{ background: 'var(--gold)' }} />
                 </div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl leading-[1.06] text-white mb-6"
+                <h2 className="text-2xl sm:text-3xl md:text-4xl leading-[1.06] text-white mb-6"
                   style={{ fontFamily: 'var(--font-display)', fontWeight: 400 }}>
                   Pronto para proteger<br />
                   o que você{' '}
@@ -86,7 +86,7 @@ export default function CTAFinal() {
                   width={964}
                   height={1282}
                   quality={90}
-                  className="absolute bottom-0 h-[580px] w-auto max-h-[580px] object-contain object-bottom"
+                  className="absolute bottom-0 h-[520px] w-auto max-h-[520px] object-contain object-bottom"
                 />
               </div>
 

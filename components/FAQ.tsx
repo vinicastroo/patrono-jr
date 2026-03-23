@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     q: 'Quanto tempo leva o registro de uma marca no INPI?',
-    a: 'O processo pode levar entre 18 e 36 meses, a depender de exigências ou eventuais oposições. O número de protocolo gerado no ato do depósito já garante a data de prioridade — ou seja, você já está protegido desde o protocolo.',
+    a: 'Garantimos o protocolo completo do processo em até 15 dias após o pagamento da primeira parcela. Durante todo o processo enviamos atualizações quinzenais sobre o andamento, até que o INPI defira o resultado final do Registro.',
   },
   {
     q: 'Preciso ter CNPJ para registrar uma marca?',
@@ -28,6 +28,10 @@ const faqs = [
   {
     q: 'Por que contratar uma EJ e não um escritório comum?',
     a: 'Porque você tem acesso a serviço de qualidade, com supervisão de especialistas, por um custo muito abaixo do mercado. Além disso, você apoia diretamente a formação de novos profissionais do Direito comprometidos com resultados reais.',
+  },
+  {
+    q: 'Qual é o valor dos serviços?',
+    a: 'Depende. Adequamos o nosso orçamento, valores e opções de pagamento de acordo com as necessidades de cada cliente! Agende um diagnóstico gratuitamente.',
   },
 ]
 
