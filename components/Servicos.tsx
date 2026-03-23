@@ -36,9 +36,9 @@ const servicos = [
   },
   {
     icon: Scale,
-    title: 'Suporte Trabalhista',
-    desc: 'Apoio em contratos de trabalho, fornecimento e processos trabalhistas — conformidade jurídica nas relações laborais.',
-    tag: 'Direito do Trabalho',
+    title: 'Políticas Institucionais',
+    desc: 'Suporte e consultoria completas para políticas, manuais, códigos e demais documentos institucionais de padronização de tarefas para a sua empresa ou associação.',
+    tag: 'Elaboração e Revisão',
   },
 ]
 
@@ -96,7 +96,7 @@ export default function Servicos() {
 
         {/* CTA */}
         <Reveal variant="slide-up" className="text-center mt-12">
-          <a href="#contato"
+          <a href="https://wa.me/557382344154" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-sm text-sm font-semibold transition-all duration-200"
             style={{ background: 'var(--gold)', color: '#2a0000', fontFamily: 'var(--font-body)' }}
             onMouseEnter={e => { e.currentTarget.style.background = 'var(--gold-light)' }}

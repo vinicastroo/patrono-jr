@@ -1,6 +1,68 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import Reveal from '@/components/Reveal'
 
+type Slide = { img?: string; bg?: string; label: string; parts: { text: string; bold?: boolean }[] }
+
+const slides: Slide[] = [
+  {
+    img: '/campus.jpg',
+    label: 'Nossa Casa',
+    parts: [
+      { text: 'Com mais de 50 anos de história, o ' },
+      { text: 'Curso de Direito da UESC', bold: true },
+      { text: ' se consolidou como referência no ensino jurídico nacional e na formação de profissionais qualificados.' },
+    ],
+  },
+  {
+    bg: '#1c0606',
+    label: 'Nossos Orientadores',
+    parts: [
+      { text: 'Um time completo de ' },
+      { text: 'especialistas experientes', bold: true },
+      { text: ' à disposição para nos auxiliar. Professores de Direito Empresarial, Trabalhista, Administrativo e Municipal de uma das maiores Universidades do País.' },
+    ],
+  },
+  {
+    bg: '#120404',
+    label: 'Nossa Equipe',
+    parts: [
+      { text: 'Mais de ' },
+      { text: '30 estudantes', bold: true },
+      { text: ' apaixonados pelo saber-fazer jurídico, entregues à uma experiência de prática qualificada. Exercemos nosso papel enquanto juristas muito antes do diploma, o que nos prepara e nos dá bagagem para o mercado de trabalho.' },
+    ],
+  },
+  {
+    bg: '#200909',
+    label: 'Movimento Empresa Júnior',
+    parts: [
+      { text: '+ 87 milhões', bold: true },
+      { text: ' em faturamento. ' },
+      { text: '+32 mil', bold: true },
+      { text: ' Empresários Juniores. ' },
+      { text: '+360', bold: true },
+      { text: ' universidades. ' },
+      { text: '+25 mil', bold: true },
+      { text: ' soluções vendidas. O maior movimento de empreendedorismo jovem do planeta.' },
+    ],
+  },
+]
+
 export default function Sobre() {
+  const [current, setCurrent] = useState(0)
+  const [fading, setFading] = useState(false)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFading(true)
+      setTimeout(() => {
+        setCurrent(prev => (prev + 1) % slides.length)
+        setFading(false)
+      }, 500)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
   return (
     <section id="sobre" style={{ background: 'var(--cream)' }}>
       <div className="max-w-6xl mx-auto px-6 py-24">
@@ -29,8 +91,8 @@ export default function Sobre() {
             <p className="text-lg leading-relaxed mb-6"
               style={{ fontFamily: 'var(--font-body)', color: 'var(--text-muted)' }}>
               A <strong style={{ color: 'var(--wine)' }}>Patrono Assessoria e Consultoria Júnior</strong> nasceu
-              com um propósito claro: democratizar o acesso à assessoria jurídica de qualidade para quem está
-              construindo, formalizando ou protegendo algo.
+              com um propósito claro: democratizar o acesso à assessoria jurídica de excelência para quem está
+              construindo, formalizando ou protegendo seu negócio.
             </p>
             <p className="text-lg leading-relaxed"
               style={{ fontFamily: 'var(--font-body)', color: 'var(--text-muted)' }}>
@@ -69,26 +131,62 @@ export default function Sobre() {
 
         </div>
 
-        {/* Foto do campus */}
+        {/* Carrossel Nossa casa */}
         <Reveal variant="scale" delay={0.1} className="mt-16">
           <div className="w-full h-64 lg:h-96 relative overflow-hidden"
             style={{ background: 'var(--wine-deeper)' }}>
-            <img
-              src="/campus.jpg"
-              alt="Campus UESC"
-              className="absolute inset-0 w-full h-full object-cover object-top"
-            />
+
+            {/* Backgrounds por slide */}
+            {slides.map((s, i) =>
+              s.img ? (
+                <img
+                  key={i}
+                  src={s.img}
+                  alt={s.label}
+                  className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500"
+                  style={{ opacity: i === current ? 1 : 0 }}
+                />
+              ) : (
+                <div
+                  key={i}
+                  className="absolute inset-0 transition-opacity duration-500"
+                  style={{ background: s.bg, opacity: i === current ? 1 : 0 }}
+                />
+              )
+            )}
+
             <div className="absolute inset-0"
               style={{ background: 'linear-gradient(to top, rgba(20,0,0,0.97) 0%, rgba(20,0,0,0.7) 50%, rgba(20,0,0,0.2) 100%)' }} />
-            <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8">
-              <span className="section-label block mb-3" style={{ color: 'var(--gold)' }}>Nossa casa</span>
+
+            {/* Texto com fade */}
+            <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8 transition-opacity duration-500"
+              style={{ opacity: fading ? 0 : 1 }}>
+              <span className="section-label block mb-3" style={{ color: 'var(--gold)' }}>
+                {slides[current].label}
+              </span>
               <p className="text-sm md:text-base leading-relaxed max-w-2xl"
                 style={{ fontFamily: 'var(--font-body)', color: 'rgba(255,255,255,0.92)' }}>
-                A <strong style={{ color: '#fff' }}>Faculdade de Direito de Ilhéus</strong> é uma das escolas
-                originárias da UESC — estadualizada em 1991 e hoje uma das quatro IES mantidas pelo Governo
-                da Bahia, fortemente vinculada ao desenvolvimento do sul da Bahia.
+                {slides[current].parts.map((part, i) =>
+                  part.bold
+                    ? <strong key={i} style={{ color: '#fff' }}>{part.text}</strong>
+                    : <span key={i}>{part.text}</span>
+                )}
               </p>
             </div>
+
+            {/* Indicadores */}
+            <div className="absolute bottom-4 right-6 z-10 flex gap-2">
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => { setFading(true); setTimeout(() => { setCurrent(i); setFading(false) }, 500) }}
+                  className="w-2 h-2 rounded-full transition-all duration-300"
+                  style={{ background: i === current ? 'var(--gold)' : 'rgba(255,255,255,0.3)' }}
+                  aria-label={`Slide ${i + 1}`}
+                />
+              ))}
+            </div>
+
           </div>
         </Reveal>
 
@@ -98,8 +196,8 @@ export default function Sobre() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
             {[
               { n: '2021', label: 'Ano de fundação' },
-              { n: 'MEJ',  label: 'Movimento Empresa Júnior' },
-              { n: 'UESC', label: 'Primeira EJ de Direito' },
+              { n: '+ 30', label: 'Clientes satisfeitos' },
+              { n: 'MEJ', label: 'Movimento Empresa Júnior' },
             ].map((s, i) => (
               <div key={s.n}
                 className={`py-5 sm:py-6 flex sm:block items-center gap-5 sm:gap-0

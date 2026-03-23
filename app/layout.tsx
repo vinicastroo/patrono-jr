@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Poppins } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import './globals.css'
 
-const cormorant = Cormorant_Garamond({
+const poppinsDisplay = Poppins({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['400', '500', '600', '700', '800'],
   style: ['normal', 'italic'],
   variable: '--font-display',
   display: 'swap',
@@ -119,7 +119,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${poppins.variable}`}>
+    <html lang="pt-BR" className={`${poppinsDisplay.variable} ${poppins.variable}`}>
       <head>
         <script
           type="application/ld+json"
