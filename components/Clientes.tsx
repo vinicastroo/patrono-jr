@@ -50,7 +50,7 @@ export default function Clientes() {
           <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
             style={{ background: 'linear-gradient(to left, var(--cream), transparent)' }} />
 
-          <div className="flex items-center" style={{ animation: 'marquee 6s linear infinite', willChange: 'transform', width: 'max-content' }}>
+          <div className="flex items-center" style={{ animation: 'marquee 12s linear infinite', willChange: 'transform', width: 'max-content' }}>
             {track.map((c, i) => (
               <div
                 key={i}
