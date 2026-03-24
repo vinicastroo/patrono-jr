@@ -147,26 +147,7 @@ export default function ComoFunciona() {
           </div>
         </div>
 
-        {/* Imagem */}
-        <div className="mt-16 w-full h-56 md:h-72 relative overflow-hidden"
-          style={{
-            border: '1px solid rgba(122,1,1,0.1)',
-            opacity: active[4] ? 1 : 0,
-            transform: active[4] ? 'translateY(0)' : 'translateY(16px)',
-            transition: 'opacity 0.6s ease, transform 0.6s ease',
-          }}>
-          <img
-            src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&fit=crop&w=1400&q=80"
-            alt="Ambiente de trabalho da equipe Patrono Jr."
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0"
-            style={{ background: 'rgba(74,0,0,0.45)', mixBlendMode: 'multiply' }} />
-          <div className="absolute inset-x-0 bottom-0 h-px"
-            style={{ background: 'var(--gold)', opacity: 0.4 }} />
-        </div>
+
 
         {/* Diferencial box */}
         <div className="mt-16 p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:gap-8 items-start"
@@ -198,6 +179,44 @@ export default function ComoFunciona() {
               Embora sejamos uma empresa comandada por empresários júniores, contamos com o apoio de três advogados especialistas e um juiz de direito enquanto professores orientadores, sempre disponíveis e atentos. Isso significa que você contrata um serviço de excelência e segurança jurídica por um valor mais acessível, contando com o apoio de profissionais experientes.
             </p>
           </div>
+        </div>
+
+        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
+          style={{
+            opacity: active[4] ? 1 : 0,
+            transform: active[4] ? 'translateY(0)' : 'translateY(16px)',
+            transition: 'opacity 0.6s ease, transform 0.6s ease',
+          }}>
+          {[
+            { img: '/prof-cairo.png', name: 'Prof. Cairo Júnior', role: 'Juiz do Trabalho, Professor de Direito do Trabalho, Processo do Trabalho e Direito Empresarial' },
+            { img: '/prof-catrine.png', name: 'Prof.ª Catrine da Mata', role: 'Advogada, Professora de Direito Empresarial e Direito do Trabalho' },
+            { img: '/prof-otavio.png', name: 'Prof. Otávio Augustus', role: 'Advogado, Professor de Direito Empresarial' },
+            { img: '/prof-geraldo.png', name: 'Prof. Geraldo Calasans', role: 'Advogado, Professor de Direito Administrativo e Direito Municipal' },
+          ].map((p, i) => (
+            <div key={i} className="flex flex-col overflow-hidden"
+              style={{ border: '1px solid rgba(122,1,1,0.1)' }}>
+              <div className="relative w-full aspect-[3/4] overflow-hidden">
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0"
+                  style={{ background: 'linear-gradient(to top, rgba(74,0,0,0.55) 0%, transparent 50%)' }} />
+              </div>
+              <div className="p-4 flex flex-col flex-1" style={{ background: 'var(--cream-dark)' }}>
+                <p className="text-sm font-semibold mb-2" style={{ fontFamily: 'var(--font-body)', color: 'var(--wine)', }}>
+                  {p.name}
+                </p>
+                <p className="text-xs leading-relaxed"
+                  style={{ fontFamily: 'var(--font-body)', color: 'var(--text-muted)' }}>
+                  {p.role}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

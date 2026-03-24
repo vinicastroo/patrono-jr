@@ -16,7 +16,7 @@ const slides: Slide[] = [
     ],
   },
   {
-    bg: '#1c0606',
+    img: '/orientadores.png',
     label: 'Nossos Orientadores',
     parts: [
       { text: 'Um time completo de ' },
@@ -25,7 +25,7 @@ const slides: Slide[] = [
     ],
   },
   {
-    bg: '#120404',
+    img: '/nossa-equipe.jpg',
     label: 'Nossa Equipe',
     parts: [
       { text: 'Mais de ' },
@@ -34,7 +34,7 @@ const slides: Slide[] = [
     ],
   },
   {
-    bg: '#200909',
+    img: '/mej.png',
     label: 'Movimento Empresa Júnior',
     parts: [
       { text: '+ 87 milhões', bold: true },
