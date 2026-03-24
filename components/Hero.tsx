@@ -84,7 +84,7 @@ export default function Hero() {
           {/* Imagem mobile */}
           <div className="lg:hidden">
             <Image
-              src="/mulher-hero.png"
+              src="/mulher-hero-2.png"
               alt="Ilustração"
               width={920}
               height={920}
@@ -97,7 +97,7 @@ export default function Hero() {
           {/* Coluna direita — imagem desktop */}
           <div className="hidden lg:flex items-end justify-center h-full min-h-[420px]">
             <Image
-              src="/mulher-hero.png"
+              src="/mulher-hero-2.png"
               alt="Ilustração"
               width={1360}
               height={1360}

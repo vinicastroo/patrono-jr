@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useReducer } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import Reveal from '@/components/Reveal'
 
 const steps = [
@@ -26,59 +26,52 @@ const steps = [
   },
 ]
 
-const THRESHOLDS = [0.05, 0.30, 0.52, 0.72, 0.85, 0.94]
+// 4 steps + diferencial box + professors grid
+const NUM = 6
 
 export default function ComoFunciona() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const lineRef = useRef<HTMLDivElement>(null)
+  const elRefs = useRef<(HTMLDivElement | null)[]>(Array(NUM).fill(null))
+  const [active, setActive] = useState<boolean[]>(Array(NUM).fill(false))
 
-  // Refs para estado ativo — atualizados sem re-render no scroll
-  const activeRef = useRef(THRESHOLDS.map(() => false))
-
-  // Re-render só ocorre quando um threshold é cruzado (máx. 6 vezes)
-  const [, notify] = useReducer(x => x + 1, 0)
-
+  // IntersectionObserver por elemento — funciona corretamente em qualquer altura
   useEffect(() => {
-    let rafId: number
-
-    const compute = () => {
-      const el = sectionRef.current
+    const observers: IntersectionObserver[] = []
+    elRefs.current.forEach((el, i) => {
       if (!el) return
-
-      const rect = el.getBoundingClientRect()
-      const vh = window.innerHeight
-      const start = vh * 0.75
-      const traveled = -rect.top + start
-      const progress = Math.min(1, Math.max(0, traveled / (rect.height * 0.95)))
-
-      // Atualiza a linha dourada via DOM direto — zero re-renders
-      if (lineRef.current) {
-        lineRef.current.style.width = `${progress * 100}%`
-      }
-
-      // Verifica cruzamentos de threshold — re-render só se algo mudou
-      const newActive = THRESHOLDS.map(t => progress >= t)
-      const changed = newActive.some((v, i) => v !== activeRef.current[i])
-      if (changed) {
-        activeRef.current = newActive
-        notify()
-      }
-    }
-
-    const onScroll = () => {
-      cancelAnimationFrame(rafId)
-      rafId = requestAnimationFrame(compute)
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true })
-    compute()
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      cancelAnimationFrame(rafId)
-    }
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActive(prev => { const next = [...prev]; next[i] = true; return next })
+            obs.disconnect()
+          }
+        },
+        { threshold: 0.15 }
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+    return () => observers.forEach(obs => obs.disconnect())
   }, [])
 
-  const active = activeRef.current
+  // Linha dourada desktop — scroll progress só para este elemento visual
+  useEffect(() => {
+    let rafId: number
+    const compute = () => {
+      const el = sectionRef.current
+      if (!el || !lineRef.current) return
+      const rect = el.getBoundingClientRect()
+      const vh = window.innerHeight
+      const traveled = -rect.top + vh * 0.75
+      const progress = Math.min(1, Math.max(0, traveled / (rect.height * 0.95)))
+      lineRef.current.style.width = `${progress * 100}%`
+    }
+    const onScroll = () => { cancelAnimationFrame(rafId); rafId = requestAnimationFrame(compute) }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    compute()
+    return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(rafId) }
+  }, [])
 
   return (
     <section id="como-funciona" className="py-28" style={{ background: 'var(--cream)' }}>
@@ -105,7 +98,7 @@ export default function ComoFunciona() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6">
             {steps.map((step, i) => (
-              <div key={i} style={{
+              <div key={i} ref={el => { elRefs.current[i] = el }} style={{
                 opacity: active[i] ? 1 : 0.3,
                 transform: active[i] ? 'translateY(0)' : 'translateY(12px)',
                 transition: 'opacity 0.5s ease, transform 0.5s ease',
@@ -147,15 +140,13 @@ export default function ComoFunciona() {
           </div>
         </div>
 
-
-
         {/* Diferencial box */}
-        <div className="mt-16 p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:gap-8 items-start"
+        <div ref={el => { elRefs.current[4] = el }} className="mt-16 p-6 lg:p-8 flex flex-col lg:flex-row gap-6 lg:gap-8 items-start"
           style={{
             background: 'var(--cream-dark)',
             borderLeft: '3px solid var(--gold)',
-            opacity: active[5] ? 1 : 0,
-            transform: active[5] ? 'translateY(0)' : 'translateY(16px)',
+            opacity: active[4] ? 1 : 0,
+            transform: active[4] ? 'translateY(0)' : 'translateY(16px)',
             transition: 'opacity 0.6s ease, transform 0.6s ease',
           }}>
           <div className="flex-shrink-0">
@@ -181,12 +172,8 @@ export default function ComoFunciona() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
-          style={{
-            opacity: active[4] ? 1 : 0,
-            transform: active[4] ? 'translateY(0)' : 'translateY(16px)',
-            transition: 'opacity 0.6s ease, transform 0.6s ease',
-          }}>
+        {/* Professores orientadores */}
+        <Reveal variant="scale" delay={0.1} className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {[
             { img: '/prof-cairo.png', name: 'Prof. Cairo Júnior', role: 'Juiz do Trabalho, Professor de Direito do Trabalho, Processo do Trabalho e Direito Empresarial' },
             { img: '/prof-catrine.png', name: 'Prof.ª Catrine da Mata', role: 'Advogada, Professora de Direito Empresarial e Direito do Trabalho' },
@@ -207,7 +194,7 @@ export default function ComoFunciona() {
                   style={{ background: 'linear-gradient(to top, rgba(74,0,0,0.55) 0%, transparent 50%)' }} />
               </div>
               <div className="p-4 flex flex-col flex-1" style={{ background: 'var(--cream-dark)' }}>
-                <p className="text-sm font-semibold mb-2" style={{ fontFamily: 'var(--font-body)', color: 'var(--wine)', }}>
+                <p className="text-sm font-semibold mb-2" style={{ fontFamily: 'var(--font-body)', color: 'var(--wine)', minHeight: '2.5rem' }}>
                   {p.name}
                 </p>
                 <p className="text-xs leading-relaxed"
@@ -217,7 +204,8 @@ export default function ComoFunciona() {
               </div>
             </div>
           ))}
-        </div>
+        </Reveal>
+
       </div>
     </section>
   )

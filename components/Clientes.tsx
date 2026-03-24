@@ -7,11 +7,14 @@ const clientes = [
   { src: '/case-2.png', alt: 'Case 2' },
   { src: '/case-3.png', alt: 'Case 3' },
   { src: '/case-4.png', alt: 'Case 4' },
+  { src: '/case-5.png', alt: 'Case 5' },
   { src: '/case-6.png', alt: 'Case 6' },
   { src: '/case-7.png', alt: 'Case 7' },
   { src: '/case-8.png', alt: 'Case 8' },
   { src: '/case-9.png', alt: 'Case 9' },
   { src: '/case-10.png', alt: 'Case 10' },
+  { src: '/case-11.png', alt: 'Case 11' },
+  { src: '/case-12.png', alt: 'Case 12' },
 ]
 
 // 2 cópias idênticas — animar exatamente -50% move um set completo,

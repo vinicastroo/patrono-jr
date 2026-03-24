@@ -16,15 +16,6 @@ const slides: Slide[] = [
     ],
   },
   {
-    img: '/orientadores.png',
-    label: 'Nossos Orientadores',
-    parts: [
-      { text: 'Um time completo de ' },
-      { text: 'especialistas experientes', bold: true },
-      { text: ' à disposição para nos auxiliar. Professores de Direito Empresarial, Trabalhista, Administrativo e Municipal de uma das maiores Universidades do País.' },
-    ],
-  },
-  {
     img: '/nossa-equipe.jpg',
     label: 'Nossa Equipe',
     parts: [
@@ -63,6 +54,7 @@ export default function Sobre() {
     }, 5000)
     return () => clearInterval(timer)
   }, [])
+
   return (
     <section id="sobre" style={{ background: 'var(--cream)' }}>
       <div className="max-w-6xl mx-auto px-6 py-24">
