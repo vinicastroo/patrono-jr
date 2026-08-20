@@ -133,8 +133,7 @@ export default function Footer() {
               style={{ opacity: 0.6 }}
               onMouseEnter={e => { e.currentTarget.style.opacity = '1' }}
               onMouseLeave={e => { e.currentTarget.style.opacity = '0.35' }}>
-              <Image src="/codelabz.svg" alt="Codelabz" width={16} height={16}
-                style={{ filter: 'brightness(0) invert(1)' }} />
+              <Image src="/codelabz.svg" alt="Codelabz" width={92} height={16} />
             </a>
           </div>
         </div>
